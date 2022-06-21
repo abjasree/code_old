@@ -2,12 +2,13 @@ class Solution:
     def isPalindrome(self, s: str) -> bool:
         s = s.lower()
         s_new = [i for i in s if i.isalnum()]
-       
-        while len(s_new) > 0:
-            if len(s_new) == 1:
-                return True
-            elif s_new[0] == s_new[-1]:
-                s_new = s_new[1:-1]
+        left = 0
+        right = len(s_new)-1
+        while left < right:
+            
+            if s_new[left] == s_new[right]:
+                left += 1
+                right -= 1
             else:
                 return False
         return True
