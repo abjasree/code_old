@@ -2,7 +2,6 @@ class Solution:
     def search(self, nums: List[int], target: int) -> int:
         self.nums = nums
         self.target = target
-        bi_search = self.search
         return self.bi_search(0,right=len(self.nums)-1)
         
     # Recursive implementation    
