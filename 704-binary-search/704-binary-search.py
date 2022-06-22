@@ -2,9 +2,10 @@ class Solution:
     def search(self, nums: List[int], target: int) -> int:
         self.nums = nums
         self.target = target
+        bi_search = self.search
         return self.bi_search(0,right=len(self.nums)-1)
         
-        
+    # Recursive implementation    
     def bi_search(self, left, right):
         if left > right:
             return -1
@@ -16,7 +17,7 @@ class Solution:
         else:
             return self.bi_search(left,mid-1)
         
-    
+    # Iterative implementation
     def iterative_search(self, nums: List[int], target: int) -> int:
         left=0
         right=len(nums)-1
