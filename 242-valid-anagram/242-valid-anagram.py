@@ -7,8 +7,7 @@ class Solution:
                 
         for j in t:
             word_dict[ord(j) - ord('a')] = word_dict[ord(j) - ord('a')] - 1
-        print(word_dict)   
-        print(not any(word_dict))
+       
         return not any(word_dict)
     
         
