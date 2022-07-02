@@ -5,6 +5,15 @@
 #         self.next = next
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        fast = head
+        slow = head
+        while fast != None and fast.next != None:
+            fast = fast.next.next
+            slow = slow.next
+        return slow
+        
+        
+    def brute_force_middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
         length = 0
         temp = head
         while temp.next != None:
@@ -26,6 +35,7 @@ class Solution:
                 count += 1
                 ans = ans.next
             return ans
+            
             
             
         
