@@ -13,28 +13,23 @@ class Solution:
         return slow
         
         
-    def brute_force_middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
         length = 0
         temp = head
         while temp.next != None:
             length += 1
             temp = temp.next
-        if length % 2 == 1:  
-            middle = length//2 + 1
-            count = 0
-            ans = head
-            while count < middle:
-                count += 1
-                ans = ans.next
-            return ans
-        else:
-            middle = length//2 
-            count = 0
-            ans = head
-            while count < middle:
-                count += 1
-                ans = ans.next
-            return ans
+        
+        middle = length//2 if length % 2 == 0 else length//2 + 1
+        count = 0
+        ans = head
+        while count < middle:
+            count += 1
+            ans = ans.next
+        return ans
+        
+           
+        
             
             
             
