@@ -14,7 +14,7 @@ class Solution:
                     right = mat[i][j+1] if j < n - 1 else float('inf')
                     mat[i][j] = min(cell, bottom + 1, right + 1)
         return mat
-        
+    
     
     
     def brute_force_updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
@@ -25,7 +25,7 @@ class Solution:
         
         for i in range(len(mat)):
             for j in range(len(mat[0])):
-                result[i][j] = self.helper(i, j)
+                result[i][j] = self.helper(i, j, 0)
                 
                
         return result
@@ -34,22 +34,23 @@ class Solution:
         
         
         
-    def helper(self, a, b):
+    def helper(self, a, b, dist):
         if (a < 0) or  (a > self.m) or (b < 0) or (b > self.n):
             return float('inf')
         if self.mat[a][b] == -1:
             return float('inf')
         
         if self.mat[a][b] == 0:
-            return 0
-        
+            return dist
         self.mat[a][b] = -1
-        left = self.helper(a, b-1)
-        right = self.helper(a, b+1)
-        up = self.helper(a-1, b)
-        down = self.helper(a+1, b)
+        dist = dist + 1
+        
+        left = self.helper(a, b-1, dist)
+        right = self.helper(a, b+1, dist)
+        up = self.helper(a-1, b, dist)
+        down = self.helper(a+1, b, dist)
         self.mat[a][b] = 1
-        return min(left, right, up, down) + 1
+        return min(left, right, up, down)
             
             
         
