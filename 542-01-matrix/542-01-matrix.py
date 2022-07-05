@@ -13,6 +13,7 @@ class Solution:
                     bottom = mat[i+1][j] if i < m - 1 else float('inf')
                     right = mat[i][j+1] if j < n - 1 else float('inf')
                     mat[i][j] = min(cell, bottom + 1, right + 1)
+        print(mat)
         return mat
     
     
