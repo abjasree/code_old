@@ -10,5 +10,8 @@ class Solution:
                 result[-1][1] = max(result[-1][1], ele[1])
                 
         return result
+    
+    
+    
             
         
