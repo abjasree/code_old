@@ -1,4 +1,6 @@
 class Solution:
+   
+            
     def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
         m, n = len(mat), len(mat[0])
         for i, row in enumerate(mat):
@@ -36,7 +38,7 @@ class Solution:
         
         
         
-    def helper(self, a, b, dist):
+    def brute_helper(self, a, b, dist):
         if (a < 0) or  (a > self.m) or (b < 0) or (b > self.n):
             return float('inf')
         if self.mat[a][b] == -1:
