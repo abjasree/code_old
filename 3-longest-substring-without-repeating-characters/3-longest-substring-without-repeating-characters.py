@@ -2,8 +2,7 @@ class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         if s == '':
             return 0
-        if len(s) == 1:
-            return 1
+        
         long_len = []
         substring = {}
         for i in range(len(s)):
