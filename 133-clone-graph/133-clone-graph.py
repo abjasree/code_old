@@ -9,15 +9,15 @@ class Node:
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
         if not node: return
-        d = {node: Node(node.val)}
+        dict_nodes = {node: Node(node.val)}
         queue = deque([node])
         while queue:
             for i in range(len(queue)):
                 curr_node = queue.popleft()
                 for neigh in curr_node.neighbors:
-                    if neigh not in d:
-                        d[neigh] = Node(neigh.val)
+                    if neigh not in dict_nodes:
+                        dict_nodes[neigh] = Node(neigh.val)
                         queue.append(neigh)
-                    d[curr_node].neighbors.append(d[neigh])
+                    dict_nodes[curr_node].neighbors.append(dict_nodes[neigh])
                     
-        return d[node]
+        return dict_nodes[node]
